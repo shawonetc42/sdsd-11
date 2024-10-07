@@ -1,0 +1,54 @@
+.bookContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.book {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.author,
+.isbn,
+.publishedDate {
+  color: #555;
+  font-size: 1.2rem;
+}
+
+.chapterContainer,
+.pageContainer {
+  margin-top: 20px;
+}
+
+.chapter h4,
+.page p {
+  margin: 0;
+  padding: 5px 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.chapter {
+  background-color: #ececec;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.page {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
