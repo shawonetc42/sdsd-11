@@ -123,7 +123,9 @@ const Posts = () => {
               </Toggle>
             </div>
             <div className="mt-2 text-black max-md:max-w-full">
-              <TruncatedText text={item.questiontext} />
+              <Link href={`/posts/${item._id}`}>
+                <TruncatedText text={item.questiontext} />
+              </Link>
             </div>
             <CommentActions item={item} />
           </div>
