@@ -15,7 +15,7 @@ export default async function Home() {
   return (
     <>
       <main>
-        <h1>Hello World 2</h1>
+        <h1>Hello World 3</h1>
       </main>
     </>
   );
