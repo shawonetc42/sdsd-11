@@ -1,37 +1,18 @@
-import TruncatedText from "@/components/helper/TruncatedText";
-import CommentActions from "@/components/model/Comments";
-import React from "react";
+// app/posts/[id]/page.js
+export default async function PostPage({ params }) {
+  const { id } = params; // Get the post ID from the URL parameters
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const post = await res.json();
 
-// Utility function to remove HTML tags from a string
-function stripHtmlTags(str) {
-  return str.replace(/<\/?[^>]+(>|$)/g, "");
-}
-
-export async function generateMetadata({ params }) {
-  const { id } = params;
-  const response = await fetch(`https://flashmain.vercel.app/posts/${id}`);
-  const post = await response.json();
-
-  // Remove HTML tags from the questiontext
-  const strippedText = stripHtmlTags(post.questiontext);
-
-  return {
-    title: strippedText,
-    description: strippedText,
-  };
-}
-
-export default async function Posts({ params }) {
-  const id = params.id;
-  const response = await fetch(`https://flashmain.vercel.app/posts/${id}`);
-  const data = await response.json();
-
-  console.log(data);
+  // Check if the post exists
+  if (!post.id) {
+    return <h1>Post not found</h1>;
+  }
 
   return (
-    <div className="mt-36 bg-white py-2 md:mt-20 px-4 container mx-auto max-w-3xl">
-      <TruncatedText text={data.questiontext} />
-      <CommentActions item={data} />
+    <div className="bg-gray-100 p-4">
+      <h1 className="text-4xl font-bold text-blue-500">{post.title}</h1>
+      <p className="text-gray-700 mt-4">{post.body}</p>
     </div>
   );
 }
